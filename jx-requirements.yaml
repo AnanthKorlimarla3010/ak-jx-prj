@@ -1,0 +1,46 @@
+jx_requirements = autoUpdate:
+  enabled: false
+  schedule: ""
+cluster:
+  clusterName: "ak-jx-cluster"
+  devEnvApprovers: []
+  environmentGitOwner: ""
+  project: "ak-jx-prj"
+  provider: gke
+  zone: "us-central1-a"
+gitops: true
+environments:
+- key: dev
+- key: staging
+- key: production
+ingress:
+  domain: ""
+  externalDNS: false
+  tls:
+    email: ""
+    enabled: false
+    production: true
+kaniko: true
+storage:
+  backup:
+    enabled: false
+  logs:
+    enabled: true
+    url: gs://logs-ak-jx-cluster-1aad7cb2b3bb
+  reports:
+    enabled: true
+    url: gs://reports-ak-jx-cluster-1aad7cb2b3bb
+  repository:
+    enabled: true
+    url: gs://repository-ak-jx-cluster-1aad7cb2b3bb
+secretStorage: vault
+vault:
+  name: ak-jx-cluster
+  bucket: vault-ak-jx-cluster-1aad7cb2b3bb
+  key: crypto-key-ak-jx-cluster-1aad7cb2b3bb
+  keyring: keyring-ak-jx-cluster-1aad7cb2b3bb
+  serviceAccount: ak-jx-cluster-vt
+versionStream:
+  ref: master
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: "lighthouse"
